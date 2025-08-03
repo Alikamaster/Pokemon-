@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hỗ trợ khách hàng | Shop Xuân Nghĩa</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  
+</head>
+<body>
+  <header>
+    <h1>💬 Tư Vấn Viên</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="chatbot.html">Hỗ trợ</a>
+      <a href="contact.html">Liên hệ</a>
+	<a href="cart.html">🛒 Giỏ hàng (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Tư Vấn Viên</h2>
+    <div class="chatbox">
+      <div id="chatlog"></div>
+      <input type="text" id="userInput" placeholder="Bạn cần hỏi gì?" />
+      <button onclick="handleUserInput()">Gửi</button>
+    </div>
+  </section>
+
+  <script src="js/chatbot.js"></script>
+</body>
+</html>

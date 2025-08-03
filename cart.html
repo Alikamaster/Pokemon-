@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Giỏ hàng | Shop Xuân Nghĩa</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header>
+    <h1>🛒 Giỏ hàng của bạn</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="cart.html">🛒 Giỏ hàng (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+    <h2>Danh sách sản phẩm trong giỏ</h2>
+    <div id="cart-items"></div>
+    <h3>Tổng cộng: <span id="total">0</span> đ</h3>
+    <button onclick="clearCart()">🗑️ Xóa giỏ hàng</button>
+  </section>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>

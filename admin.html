@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quản lý sản phẩm | Admin</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<script>
+  if (localStorage.getItem("isAdmin") !== "true") {
+    alert("Vui lòng đăng nhập!");
+    window.location.href = "login.html";
+  }
+</script>
+
+<body>
+  <header>
+    <h1>⚙️ Trang Admin</h1>
+  </header>
+
+  <section>
+    <h2>Thêm sản phẩm mới</h2>
+    <input type="text" id="name" placeholder="Tên sản phẩm" />
+    <input type="number" id="price" placeholder="Giá" />
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+  <label for="img">Chọn ảnh sản phẩm:</label>
+  <input type="file" id="img" name="image" accept="image/*" required />
+  <button type="submit">Tải ảnh lên</button>
+</form>
+    <button onclick="addProduct()">➕ Thêm sản phẩm</button>
+  </section>
+
+  <section>
+    <h2>Danh sách sản phẩm</h2>
+    <div id="product-list"></div>
+  </section>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

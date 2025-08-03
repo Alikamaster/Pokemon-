@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sản phẩm | Shop Xuân Nghĩa</title>
+  <link rel="stylesheet" href="css/style.css"/>
+
+</head>
+<script>
+  function addToCart(name, price) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push({ name, price });
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("✅ Đã thêm vào giỏ!");
+    updateCartCount();
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.querySelectorAll("#cart-count").forEach(span => {
+      span.textContent = cart.length;
+    });
+  }
+
+  updateCartCount();
+</script>
+<body>
+  <header>
+    <h1>🛒 Tất cả sản phẩm</h1>
+    <nav>
+      <a href="index.html">Trang chủ</a>
+      <a href="products.html">Sản phẩm</a>
+      <a href="chatbot.html">Hỗ trợ</a>
+      <a href="contact.html">Liên hệ</a>
+	<a href="cart.html">🛒 Giỏ hàng (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <section>
+  <div class="product-list" id="product-container"></div>
+</section>
+
+<script>
+  function renderProducts() {
+    const list = JSON.parse(localStorage.getItem("admin_products")) || [];
+    const container = document.getElementById("product-container");
+    container.innerHTML = "";
+    list.forEach(item => {
+      container.innerHTML += `
+        <div class="product-card">
+          <img src="${item.img}" alt="${item.name}" />
+          <h3>${item.name}</h3>
+          <p>Giá: ${item.price.toLocaleString()} đ</p>
+          <button onclick="addToCart('${item.name}', ${item.price})">Thêm vào giỏ</button>
+        </div>
+      `;
+    });
+  }
+
+  renderProducts();
+</script>
+
+
+  <footer>
+    <p>© 2025 Shop Xuân Nghĩa</p>
+  </footer>
+</body>
+</html>
